@@ -146,61 +146,63 @@
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            padding: 2rem 0;
         }
 
         .project-card {
             background-color: var(--white);
             border-radius: 8px;
             overflow: hidden;
-            transition: all 0.4s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: morphIn 0.8s ease forwards;
-            animation-delay: calc(var(--i) * 0.2s);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
-        @keyframes morphIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px) scale(0.9);
-                border-radius: 20px;
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-                border-radius: 8px;
-            }
+        .project-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .project-img {
-            width: 100%;
-            height: 200px;
-            background-color: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #aaa;
+        .project-card:hover img {
+            transform: scale(1.05);
         }
 
-        .project-info {
-            padding: 1.5rem;
+        /* Fix the nested div issue */
+        .project-card .project-img {
+            display: none; /* Remove duplicate project image divs */
         }
 
-        .project-info h3 {
-            margin-bottom: 0.5rem;
-            font-weight: 600;
+        /* Update text colors for better contrast on dark background */
+        .hero h1, .hero p, .section-title, .about-content p {
+            color: var(--white);
         }
 
-        .project-info p {
-            color: #666;
-            font-size: 0.9rem;
+        /* Fix social links hover state */
+        .social-links a {
+            color: var(--light-grey);
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+        }
+
+        .social-links a:hover {
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Add container width constraint */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         /* About section */
@@ -355,51 +357,41 @@
     </header>
     
     <section class="hero">
-        <h1>Designer & Developer creating thoughtful digital experiences</h1>
-        <p>Based in your location, specializing in UI/UX design, branding, and front-end development.</p>
-        <a href="#projects" class="btn">View My Work</a>
+        <h1>A Student and Leader</h1>
+        <p>I'm a student of Himalayan White House, a prestigious educational institution known for its rigorous academic programs and exceptional faculty. I'm passionate about design and technology, and I'm always looking for new ways to create innovative and impactful digital products.</p>
+        <a href="#projects" class="btn">View me!</a>
     </section>
     
-    <section id="projects" class="projects">
-        <h2 class="section-title">Featured Projects</h2>
+    <section id="projects" class="projects container">
+        <h2 class="section-title">Some Pictures</h2>
         <div class="project-grid">
             <div class="project-card">
-                <div class="project-img">Project Image</div>
+                <img src="FB_IMG_17132453006719059.jpg" alt="13 years ago">
                 <div class="project-info">
-                    <h3>Project One</h3>
-                    <p>UI/UX Design, Branding</p>
+                    <!-- Add description if needed -->
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-img">Project Image</div>
+                <img src="1742037929981.jpeg" alt="13 years ago">
                 <div class="project-info">
-                    <h3>Project Two</h3>
-                    <p>Web Development, E-Commerce</p>
+                    <!-- Add description if needed -->
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-img">Project Image</div>
+                <img src="FB_IMG_17099075487365378.jpg" alt="13 years ago">
                 <div class="project-info">
-                    <h3>Project Three</h3>
-                    <p>Mobile App, UI Design</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-img">Project Image</div>
-                <div class="project-info">
-                    <h3>Project Four</h3>
-                    <p>Brand Identity, Packaging</p>
+                    <!-- Add description if needed -->
                 </div>
             </div>
         </div>
     </section>
     
     <section id="about" class="about">
-        <div class="about-img">Profile Image</div>
+        <div class="about-img"> <img src="1742037997994.jpeg" alt="Profile Image" class="about-img">Profile Image</div>
         <div class="about-content">
             <h2>About Me</h2>
-            <p>I'm a designer and developer with over X years of experience creating digital products and brands that people love. My approach combines strategic thinking with creative execution to deliver results that exceed expectations.</p>
-            <p>I've worked with various clients from startups to established brands, helping them achieve their business goals through thoughtful design and development solutions.</p>
+            <p>I'm currently studying on Himalayan White House, where I'm learning about design, technology, and entrepreneurship. I'm passionate about creating innovative and impactful digital products.</p>
+            <p>As a 17th years old, I've always been fascinated by the world of design and technology. I'm eager to learn and grow, and I'm always looking for new opportunities to create something amazing.</p>
             <p>When I'm not designing or coding, you'll find me exploring new places, reading, or experimenting with new creative techniques.</p>
         </div>
     </section>
